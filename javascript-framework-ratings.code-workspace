@@ -1,0 +1,17 @@
+{
+  "folders": [
+    {
+      "path": "api"
+    },
+    {
+      "path": "front-end"
+    },
+    {
+      "path": "development"
+    },
+    {
+      "path": "deployment"
+    }
+  ],
+  "settings": {}
+}

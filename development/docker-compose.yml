@@ -1,0 +1,57 @@
+version: '3.2'
+services:
+  mongodb:
+    image: mongo:3.6.6-jessie
+    container_name: javascript-ratings-development-mongo-database
+    ports:
+      - '27017:27017'
+    expose:
+      - '27017'
+    volumes:
+      - mongodata:/data/db
+  nginx:
+    build: ./development
+    container_name: javascript-ratings-development-nginx
+    depends_on:
+      - api
+      - front-end
+    ports:
+      - '80:80'
+    volumes:
+      - type: bind
+        source: ./front-end
+        target: /app
+    working_dir: /app
+  front-end:
+    image: node:10.7.0-stretch
+    container_name: javascript-ratings-development-web
+    command: sh -c 'yarn start -H 0.0.0.0'
+    depends_on:
+      - api
+    ports:
+      - '3000:3000'
+    volumes:
+      - type: bind
+        source: ./front-end
+        target: /app
+    working_dir: /app
+  api:
+    image: node:10.7.0-stretch
+    container_name: javascript-ratings-development-api
+    command: sh -c 'node --inspect=0.0.0.0:9229 index.js'
+    environment:
+      LISTEN_ON: 0.0.0.0
+      PORT: 8080
+      MONGO_CONNECTION_STRING: mongodb://javascript-ratings-development-mongo-database:27017/javascript-framework-ratings
+    depends_on:
+      - mongodb
+    ports:
+      - '9229:9229'
+      - '8080:8080'
+    volumes:
+      - type: bind
+        source: ./api
+        target: /app
+    working_dir: /app
+volumes:
+  ? mongodata
