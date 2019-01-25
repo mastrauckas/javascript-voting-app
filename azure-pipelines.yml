@@ -15,6 +15,7 @@ variables:
 steps:
 - script: |
     cd ./front-end
+    yarn
     yarn build
 # cp -au ./build/. ../deve
 # - script: docker build -f Dockerfile -t $(imageName) .
