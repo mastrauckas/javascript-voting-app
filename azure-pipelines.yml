@@ -17,6 +17,6 @@ steps:
     cd ./front-end
     yarn
     yarn build
-cp -au ./build/. ./deployment/with-docker/front-end-app/dockerfile
-# - script: docker build -f Dockerfile -t $(imageName) .
+    cp -au ./build/. ./deployment/with-docker/front-end-app/dockerfile
+#- script: docker build -f Dockerfile -t $(imageName) .
 #   displayName: 'docker build'
