@@ -13,5 +13,9 @@ variables:
   imageName: 'your-container-image-name:$(build.buildId)'
 
 steps:
-- script: docker build -f Dockerfile -t $(imageName) .
-  displayName: 'docker build'
+- script: |
+    cd ./front-end
+    yarn build
+# cp -au ./build/. ../deve
+# - script: docker build -f Dockerfile -t $(imageName) .
+#   displayName: 'docker build'
