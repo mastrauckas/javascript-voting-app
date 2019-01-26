@@ -24,8 +24,8 @@ steps:
 
 - script: |
     cd ./deployment/with-docker/front-end-app
-    ls -la
     docker build -t $(imageName) .
+    docker images
   displayName: 'Building Docker image'
 
 - task: Docker@1
