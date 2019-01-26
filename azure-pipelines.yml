@@ -18,14 +18,13 @@ steps:
     cd ./front-end
     yarn
     yarn build
-    echo Copying build directory
     cp -au ./build/. ../deployment/with-docker/front-end-app/build
-    echo Copying done
   displayName: 'Building JavaScript'
 
 - script: |
     cd ./deployment/with-docker/front-end-app
-    docker build -t $(imageName) -t $(imageTag) .
+    docker build -t $(imageName) .
+    docker tag $(imageName) $(imageTag)
     docker images
   displayName: 'Building Docker image'
 
