@@ -10,7 +10,7 @@ pool:
   vmImage: 'Ubuntu-16.04'
 
 variables:
-  imageName: 'front-end-app:$(build.buildId)'
+  imageName: 'acrakstesting.azurecr.io/front-end-app:$(build.buildId)'
   imageTag: 'front-end-app'
 
 steps:
@@ -24,7 +24,6 @@ steps:
 - script: |
     cd ./deployment/with-docker/front-end-app
     docker build -t $(imageName) .
-    docker tag $(imageName) $(imageTag)
     docker images
   displayName: 'Building Docker image'
 
