@@ -18,7 +18,7 @@ steps:
     yarn
     yarn build
     echo Copying build directory
-    cp -au ./build/. ../deployment/with-docker/front-end-app
+    cp -au ./build/. ../deployment/with-docker/front-end-app/build
     echo Copying done
   displayName: 'Building JavaScript'
 
