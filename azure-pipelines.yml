@@ -11,6 +11,7 @@ pool:
 
 variables:
   imageName: 'front-end-app:$(build.buildId)'
+  imageTag: 'front-end-app'
 
 steps:
 - script: |
@@ -24,7 +25,7 @@ steps:
 
 - script: |
     cd ./deployment/with-docker/front-end-app
-    docker build -t $(imageName) .
+    docker build -t $(imageName) -t $(imageTag) .
     docker images
   displayName: 'Building Docker image'
 
