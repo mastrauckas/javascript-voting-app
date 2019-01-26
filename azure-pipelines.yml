@@ -22,7 +22,9 @@ steps:
     echo Copying done
   displayName: 'Building JavaScript'
 
-- script: docker build -f ./deployment/with-docker/front-end-app/dockerfile -t $(imageName) .
+- script: |
+    cd ./deployment/with-docker/front-end-app
+    docker build -t $(imageName) .
   displayName: 'Building Docker image'
 
 - task: Docker@1
