@@ -6,3 +6,4 @@ RUN rm -frv usr/share/nginx/html; \
 
 COPY ./nginx/front-end-app..conf /etc/nginx/conf.d/
 COPY ./build /usr/share/nginx/static-files
+EXPOSE 80
