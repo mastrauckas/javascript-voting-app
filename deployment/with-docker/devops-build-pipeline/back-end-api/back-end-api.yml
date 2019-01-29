@@ -9,7 +9,10 @@ variables:
   imageTag: 'back-end-api'
 
 steps:
-  - script: cd ../../../../api && yarn --production --silent --modules-folder ../deployment/with-docker/devops-build-pipeline/back-end-api
+  - script: |
+      ls -la
+      pwd
+      cd ../../../../api && yarn --production --silent --modules-folder ../deployment/with-docker/devops-build-pipeline/back-end-api
     displayName: 'Installing Node packages'
 
   - script: docker build -t $(imageName) .
