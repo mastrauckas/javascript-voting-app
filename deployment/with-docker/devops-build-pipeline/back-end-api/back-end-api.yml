@@ -1,0 +1,29 @@
+
+trigger:
+- master
+
+pool:
+  vmImage: 'Ubuntu-16.04'
+
+variables:
+  imageName: 'acrakstesting.azurecr.io/back-end-api:$(build.buildId)'
+  imageTag: 'back-end-api'
+
+- steps: script: yarn --production # --silent
+  displayName: 'Installing Node packages'
+
+- script: | docker build -t $(imageName) .
+  displayName: 'Building Docker image'
+
+- task: Docker@1
+  displayName: 'Push an image'
+  inputs:
+    azureSubscriptionEndpoint: 'Azure'
+    azureContainerRegistry: '{"loginServer":"acrakstesting.azurecr.io", "id" : "/subscriptions/8d84a09e-f441-4fa2-8dc5-b1209bdc4732/resourceGroups/rg-acrs/providers/Microsoft.ContainerRegistry/registries/AcrAksTesting"}'
+    dockerFile: './deployment/with-docker/front-end-app/dockerfile'
+    includeSourceTags: true
+    command: 'Push an Image'
+    containerregistrytype: Azure Container Registry
+    imageName: $(imageName)
+    imageNamesPath: 
+    restartPolicy: always

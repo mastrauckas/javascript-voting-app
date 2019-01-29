@@ -1,0 +1,8 @@
+FROM node:8.15.0-stretch
+WORKDIR /app
+COPY ./node_modules /node_modules
+COPY ./index.js /index.js
+COPY ./httpServer.js /httpServer.js
+COPY ./database.js /database.js
+EXPOSE 8080
+ENTRYPOINT ["node", "index.js"]
