@@ -9,7 +9,7 @@ variables:
   imageName: 'acrakstesting.azurecr.io/back-end-api:$(build.buildId)'
   imageTag: 'back-end-api'
 
-- steps: script: yarn --production # --silent
+- script: yarn --production # --silent
   displayName: 'Installing Node packages'
 
 - script: | docker build -t $(imageName) .
