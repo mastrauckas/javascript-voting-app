@@ -15,7 +15,9 @@ steps:
   - script: |
       ls -la
       pwd
-      cd ./deployment/with-docker/devops-build-pipeline/back-end-api && docker build -t $(imageName) .
+      cd ./deployment/with-docker/devops-build-pipeline/back-end-api
+      docker build -t $(imageName) .
+      # cd ./deployment/with-docker/devops-build-pipeline/back-end-api && docker build -t $(imageName) .
     displayName: 'Building Docker image'
 
   - task: Docker@1
