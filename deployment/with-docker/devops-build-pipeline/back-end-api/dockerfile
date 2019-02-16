@@ -2,7 +2,7 @@ FROM node:8.15.0-stretch
 WORKDIR /app
 COPY ./node_modules /node_modules
 COPY ./js/index.js /index.js
-COPY ./js/api/httpServer.js /httpServer.js
-COPY ./js/api/database.js /database.js
+COPY ./js/httpServer.js /httpServer.js
+COPY ./js/database.js /database.js
 EXPOSE 8080
 ENTRYPOINT ["node", "index.js"]
