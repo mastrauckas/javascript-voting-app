@@ -18,7 +18,7 @@ steps:
       cd ./front-end
       yarn
       yarn build
-      cp -au ./build/. ../deployment/with-docker/front-end-app/build
+      cp -au ./build/. ../deployment/with-docker/devops-build-pipeline/front-end/app/build
     displayName: 'Building JavaScript'
 
   - script: |
