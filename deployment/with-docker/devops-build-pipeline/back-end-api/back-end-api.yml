@@ -13,11 +13,11 @@ steps:
     displayName: 'Installing Node packages'
 
   - script: mkdir -p ./deployment/with-docker/devops-build-pipeline/back-end-api/js && cp ./api/*.js ./deployment/with-docker/devops-build-pipeline/back-end-api/js
-  displayName: 'Copying javascript files to deployment directory'
+   displayName: 'Copying javascript files to deployment directory'
 
   - script: cd ./deployment/with-docker/devops-build-pipeline/back-end-api && docker build -t $(imageName) .
     displayName: 'Building Docker image'
-    
+
   - task: Docker@1
     displayName: 'Push an image'
     inputs:
