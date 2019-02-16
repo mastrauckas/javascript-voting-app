@@ -15,7 +15,7 @@ variables:
 
 steps:
   - script: |
-      cd ./front-end
+      cd ./front-end-app
       yarn
       yarn build
       cp -au ./build/. ../deployment/with-docker/devops-build-pipeline/building/front-end-app/build
