@@ -12,7 +12,7 @@ steps:
   - script: cd ./api && yarn --production --silent --modules-folder ../deployment/with-docker/devops-build-pipeline/back-end-api/node_modules
     displayName: 'Installing Node packages'
 
-  - script: cp  ./api/*.js ./deployment/with-docker/devops-build-pipeline/back-end-api/js
+  - script: mkdir -p ./deployment/with-docker/devops-build-pipeline/back-end-api/js && cp  ./api/*.js ./deployment/with-docker/devops-build-pipeline/back-end-api/js
 
   - script: |
       ls -la
