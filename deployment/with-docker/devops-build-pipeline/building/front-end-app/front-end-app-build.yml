@@ -22,7 +22,7 @@ steps:
     displayName: 'Building JavaScript'
 
   - script: |
-      cd ./deployment/with-docker/building/front-end-app
+      cd ./deployment/with-docker/devops-build-pipeline/building/front-end-app
       docker build -t $(imageName) .
       docker images
     displayName: 'Building Docker image'
@@ -32,7 +32,7 @@ steps:
     inputs:
       azureSubscriptionEndpoint: 'Azure'
       azureContainerRegistry: '{"loginServer":"acrakstesting.azurecr.io", "id" : "/subscriptions/8d84a09e-f441-4fa2-8dc5-b1209bdc4732/resourceGroups/rg-acrs/providers/Microsoft.ContainerRegistry/registries/AcrAksTesting"}'
-      dockerFile: './deployment/with-docker/front-end-app/dockerfile'
+      dockerFile: './deployment/with-docker/devops-build-pipeline/building/front-end-app/building/dockerfile'
       includeSourceTags: true
       command: 'Push an Image'
       containerregistrytype: Azure Container Registry
