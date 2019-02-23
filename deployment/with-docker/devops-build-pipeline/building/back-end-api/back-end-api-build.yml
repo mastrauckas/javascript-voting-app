@@ -7,6 +7,7 @@ pool:
 variables:
   imageName: 'acrakstesting.azurecr.io/back-end-api:$(build.buildId)'
   imageTag: 'back-end-api'
+  acrLogin: '{"loginServer":"$(acr)"'
 
 steps:
   # - script: cd ./api && yarn --production --silent --modules-folder ../deployment/with-docker/devops-build-pipeline/building/back-end-api/node_modules
@@ -34,7 +35,8 @@ steps:
   - script: |
       cd ./deployment/with-docker/devops-build-pipeline/deploying
       mkdir -p artifacts
-      sed 's/[build-id]/$(build.buildId)/' < back-end-api-deployment-template.yml > ./artifacts/back-end-api-deployment.yml
+      echo $(acrLogin)
+      sed 's/\[build-id\]/$(build.buildId)/' < back-end-api-deployment-template.yml > ./artifacts/back-end-api-deployment.yml
     displayName: 'Building Kubernetes  deployment file'
 
   - task: PublishBuildArtifacts@1
