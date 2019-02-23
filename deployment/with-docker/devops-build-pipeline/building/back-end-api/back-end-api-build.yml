@@ -5,7 +5,7 @@ pool:
   vmImage: 'Ubuntu-16.04'
 
 variables:
-  imageName: ' back-end-api:$(build.buildId)'
+  imageName: ''$(acrName)/back-end-api:$(build.buildId)'
   imageTag: 'back-end-api'
 
 steps:
