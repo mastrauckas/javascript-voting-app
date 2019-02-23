@@ -30,3 +30,14 @@ steps:
       imageName: $(imageName)
       imageNamesPath:
       restartPolicy: always
+
+  - script: |
+      cd ./deployment/with-docker/devops-build-pipeline/deploying
+      sed s/[build-id]/$(Build.BuildNumber)/ < back-end-api-deployment-template.yml > ./artifacts/back-end-api-deployment.yml
+    displayName: 'Building Kubernetes  deployment file'
+
+  - task: PublishPipelineArtifact@1
+    displayName: 'Push Kubernetes deplyoment file to artifacts '
+    inputs:
+      artifactName: 'Kubernetes deplyoment file'
+      targetPath: './deployment/with-docker/devops-build-pipeline/deploying/artifacts'
