@@ -38,7 +38,7 @@ steps:
       imageNamesPath:
       restartPolicy: always
 
-   - script: |
+  - script: |
       cd ./deployment/with-docker/devops-build-pipeline/deploying
       mkdir -p artifacts
       echo $(acrLogin)
