@@ -23,7 +23,6 @@ steps:
     inputs:
       azureSubscriptionEndpoint: '$(azureSubscriptionEndpoint)'
       azureContainerRegistry: '$(azureContainerRegistry)'
-      # dockerFile: './deployment/with-docker/devops-build-pipeline/building/back-end-api/dockerfile'
       includeSourceTags: true
       command: 'Push an Image'
       containerregistrytype: Azure Container Registry
