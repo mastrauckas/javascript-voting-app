@@ -5,7 +5,7 @@ pool:
   vmImage: 'Ubuntu-16.04'
 
 variables:
-  imageName: '  /back-end-api:$(build.buildId)'
+  imageName: ' back-end-api:$(build.buildId)'
   imageTag: 'back-end-api'
 
 steps:
@@ -23,6 +23,7 @@ steps:
     inputs:
       azureSubscriptionEndpoint: '$(azureSubscriptionEndpoint)'
       azureContainerRegistry: '$(azureContainerRegistry)'
+      # dockerFile: './deployment/with-docker/devops-build-pipeline/building/back-end-api/dockerfile'
       includeSourceTags: true
       command: 'Push an Image'
       containerregistrytype: Azure Container Registry
