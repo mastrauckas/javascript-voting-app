@@ -6,7 +6,6 @@ pool:
 
 variables:
   imageName: '$(acrName)/back-end-api:$(build.buildId)'
-  imageTag: 'back-end-api'
 
 steps:
   - script: cd ./api && yarn --production --silent --modules-folder ../deployment/with-docker/devops-build-pipeline/building/back-end-api/node_modules
