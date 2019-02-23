@@ -37,7 +37,7 @@ steps:
       sed s/[build-id]/$(build.buildId)/ < back-end-api-deployment-template.yml > ./artifacts/back-end-api-deployment.yml
     displayName: 'Building Kubernetes  deployment file'
 
-  - task: PublishPipelineArtifact@1
+  - task: PublishBuildArtifacts@1
     displayName: 'Push Kubernetes deplyoment file to artifacts'
     inputs:
       ArtifactName: 'Kubernetes deplyoment file'
