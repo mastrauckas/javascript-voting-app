@@ -6,10 +6,12 @@
 # Read more about triggers at https://docs.microsoft.com/en-us/azure/devops/pipelines/build/triggers?view=azure-devops&tabs=yaml
 trigger:
   branches:
-    - master
+    include:
+      - master
   paths:
-    - /front-end-app
-    - /deployment/with-docker\devops-build-pipeline/building/front-end-app
+    include:
+      - /front-end-app
+      - /deployment/with-docker\devops-build-pipeline/building/front-end-app
 
 pool:
   vmImage: 'Ubuntu-16.04'

@@ -1,9 +1,11 @@
 trigger:
   branches:
-    - master
+    include:
+      - master
   paths:
-    - /api
-    - /deployment/with-docker\devops-build-pipeline/building/back-end-app
+    include:
+      - /api
+      - /deployment/with-docker\devops-build-pipeline/building/back-end-app
 
 pool:
   vmImage: 'Ubuntu-16.04'
