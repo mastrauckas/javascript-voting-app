@@ -38,7 +38,7 @@ steps:
   - script: |
       cd ./deployment/with-docker/devops-build-pipeline/deploying
       mkdir -p artifacts
-      sed 's/\[build-id\]/$(build.buildId)/' < back-end-api-deployment-template.yml >  sed 's/\[acrUrl]/$(acrUrl)/' > ./artifacts/back-end-api-deployment.yml
+      sed 's/\[build-id\]/$(build.buildId)/' < back-end-api-deployment-template.yml >  sed 's/\[acrUrl\]/$(acrUrl)/' > ./artifacts/back-end-api-deployment.yml
     displayName: 'Building Kubernetes  deployment file'
 
   - task: PublishBuildArtifacts@1
