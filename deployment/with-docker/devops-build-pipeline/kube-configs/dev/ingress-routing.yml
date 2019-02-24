@@ -22,11 +22,11 @@ spec:
 apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
-  name: jsva-ingress
-  namespace: jsva-dev
+  name: jfrapp-ingress
+  namespace: dev
 spec:
   rules:
-    - host: jsva-dev.eastus.cloudapp.azure.com
+    - host: jfrapp-dev.eastus.cloudapp.azure.com
       http:
         paths:
           - path: /api

@@ -2,7 +2,7 @@ kind: ConfigMap
 apiVersion: v1
 metadata:
   name: back-end-api-configmap
-  namespace: jsva-dev
+  namespace: dev
 data:
   MONGO_CONNECTION_STRING: ''
   PORT: '8080'
