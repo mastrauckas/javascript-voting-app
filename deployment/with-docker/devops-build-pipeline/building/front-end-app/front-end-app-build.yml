@@ -11,7 +11,7 @@ trigger:
   paths:
     include:
       - /front-end-app
-      - /deployment/with-docker\devops-build-pipeline/building/front-end-app
+      - /deployment/with-docker/devops-build-pipeline/building/front-end-app
 
 pool:
   vmImage: 'Ubuntu-16.04'
