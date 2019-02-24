@@ -38,5 +38,5 @@ steps:
   - task: PublishBuildArtifacts@1
     displayName: 'Push Kubernetes deplyoment file to artifacts'
     inputs:
-      ArtifactName: 'Kubernetes deplyoment file'
+      ArtifactName: 'kubernetes-deplyoment-artifacts'
       PathtoPublish: './deployment/with-docker/devops-build-pipeline/deploying/artifacts'
