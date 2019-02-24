@@ -4,7 +4,7 @@ trigger:
       - master
   paths:
     include:
-      - /api
+      - /back-end-api
       - /deployment/with-docker/devops-build-pipeline/building/back-end-api
 
 pool:
@@ -14,10 +14,10 @@ variables:
   imageName: '$(acrUrl)/back-end-api:$(build.buildId)'
 
 steps:
-  - script: cd ./api && yarn --production --silent --modules-folder ../deployment/with-docker/devops-build-pipeline/building/back-end-api/node_modules
+  - script: cd ./back-end-api && yarn --production --silent --modules-folder ../deployment/with-docker/devops-build-pipeline/building/back-end-api/node_modules
     displayName: 'Installing Node packages'
 
-  - script: mkdir -p ./deployment/with-docker/devops-build-pipeline/building/back-end-api/js && cp ./api/*.js ./deployment/with-docker/devops-build-pipeline/building/back-end-api/js
+  - script: mkdir -p ./deployment/with-docker/devops-build-pipeline/building/back-end-api/js && cp ./back-end-api/*.js ./deployment/with-docker/devops-build-pipeline/building/back-end-api/js
     displayName: 'Copying javascript files to deployment directory'
 
   - script: cd ./deployment/with-docker/devops-build-pipeline/building/back-end-api && docker build -t $(imageName) .

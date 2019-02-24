@@ -2,7 +2,7 @@ version: '3.2'
 services:
   mongodb:
     image: mongo:3.6.6-jessie
-    container_name: javascript-ratings-development-mongo-database
+    container_name: jfrapp-mongo-database
     ports:
       - '27017:27017'
     expose:
@@ -11,9 +11,9 @@ services:
       - mongodata:/data/db
   nginx:
     build: ./development
-    container_name: javascript-ratings-development-nginx
+    container_name: jfrapp-development-nginx
     depends_on:
-      - api
+      - back-end-api
       - front-end
     ports:
       - '80:80'
@@ -24,10 +24,10 @@ services:
     working_dir: /app
   front-end:
     image: node:10.7.0-stretch
-    container_name: javascript-ratings-development-web
+    container_name: jfrapp-development-web
     command: sh -c 'yarn start -H 0.0.0.0'
     depends_on:
-      - api
+      - back-end-api
     ports:
       - '3000:3000'
     volumes:
@@ -35,14 +35,14 @@ services:
         source: ./front-end
         target: /app
     working_dir: /app
-  api:
+  back-end-api:
     image: node:10.7.0-stretch
-    container_name: javascript-ratings-development-api
+    container_name: jfrapp-development-api
     command: sh -c 'node --inspect=0.0.0.0:9229 index.js'
     environment:
       LISTEN_ON: 0.0.0.0
       PORT: 8080
-      MONGO_CONNECTION_STRING: mongodb://javascript-ratings-development-mongo-database:27017/javascript-framework-ratings
+      MONGO_CONNECTION_STRING: mongodb://jfrapp-development-mongo-database:27017/javascript-framework-ratings
     depends_on:
       - mongodb
     ports:
@@ -50,8 +50,8 @@ services:
       - '8080:8080'
     volumes:
       - type: bind
-        source: ./api
+        source: ./back-end-api
         target: /app
     working_dir: /app
 volumes:
-  ? mongodata
+  mongodata:

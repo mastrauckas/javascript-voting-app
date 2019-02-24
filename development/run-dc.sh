@@ -1,10 +1,10 @@
 #!/bin/sh
 
-cd ../front-end
+cd ../front-end-app
 yarn
 cd ../development
 
-cd ../api
+cd ../back-end-api
 yarn
 cd ../development
 
