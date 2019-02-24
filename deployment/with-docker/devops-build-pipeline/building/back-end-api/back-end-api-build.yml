@@ -1,11 +1,15 @@
 trigger:
-  - master
+  branches:
+    - master
+  paths:
+    - /api
+    - /deployment/with-docker\devops-build-pipeline/building/back-end-app
 
 pool:
   vmImage: 'Ubuntu-16.04'
 
 variables:
-  imageName: '$(acrName)/back-end-api:$(build.buildId)'
+  imageName: '$(acrUrl)/back-end-api:$(build.buildId)'
 
 steps:
   - script: cd ./api && yarn --production --silent --modules-folder ../deployment/with-docker/devops-build-pipeline/building/back-end-api/node_modules
