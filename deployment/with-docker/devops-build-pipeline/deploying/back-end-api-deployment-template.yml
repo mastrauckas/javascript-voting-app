@@ -22,7 +22,7 @@ spec:
     spec:
       containers:
         - name: back-end-api
-          image: acrakstesting.azurecr.io/back-end-api:[build-id]
+          image: [acrUrl]/back-end-api:[build-id]
           ports:
             - containerPort: 8080
               name: http

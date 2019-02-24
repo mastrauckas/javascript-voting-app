@@ -22,7 +22,7 @@ spec:
     spec:
       containers:
         - name: front-end-app
-          image: acrakstesting.azurecr.io/front-end-app:[build-id]
+          image: [acrUrl]/front-end-app:[build-id]
           ports:
             - containerPort: 8080
               name: http

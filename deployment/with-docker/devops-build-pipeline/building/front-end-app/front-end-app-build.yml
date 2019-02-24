@@ -49,7 +49,7 @@ steps:
       cd ./deployment/with-docker/devops-build-pipeline/deploying
       mkdir -p artifacts
       echo $(acrLogin)
-      sed 's/\[build-id\]/$(build.buildId)/' < front-end-app-deployment-template.yml > ./artifacts/front-end-app-deployment.yml
+      sed 's/\[build-id\]/$(build.buildId)/' < front-end-app-deployment-template.yml >  sed 's/\[acrUrl]/$(acrUrl)/' > ./artifacts/front-end-app-deployment.yml
     displayName: 'Building Kubernetes  deployment file'
 
   - task: PublishBuildArtifacts@1
