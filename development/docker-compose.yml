@@ -28,7 +28,8 @@ services:
     # Need upgrading?
     image: node:10.7.0-stretch
     container_name: jfrapp-development-web
-    command: sh -c 'BROWSER=none HOST=0.0.0.0 PUBLIC_URL=/app yarn start'
+    # For advanced environment variables, go to url https://create-react-app.dev/docs/advanced-configuration/.
+    command: sh -c 'yarn start'
     depends_on:
       - back-end-api
     ports:
@@ -38,6 +39,7 @@ services:
         source: ./front-end
         target: /app
     working_dir: /app
+    stdin_open: true
   back-end-api:
     # Need upgrading?
     image: node:10.7.0-stretch
