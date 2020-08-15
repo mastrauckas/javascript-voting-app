@@ -42,7 +42,7 @@ services:
     environment:
       LISTEN_ON: 0.0.0.0
       PORT: 8080
-      MONGO_CONNECTION_STRING: mongodb://jfrapp-development-mongo-database:27017/javascript-framework-ratings
+      MONGO_CONNECTION_STRING: mongodb+srv://application-user:wA2GVyvIaCd5bWV1@local-development-clust.rtjbr.azure.mongodb.net/javascript-framework-ratings?retryWrites=true&w=majority
     depends_on:
       - mongodb
     ports:
