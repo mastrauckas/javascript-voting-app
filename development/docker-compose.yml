@@ -1,8 +1,7 @@
 version: '3.2'
 services:
   mongodb:
-    # Need upgrading?
-    image: mongo:3.6.6-jessie
+    image: mongo:4.4.0
     container_name: jfrapp-mongo-database
     ports:
       - '27017:27017'
@@ -11,7 +10,6 @@ services:
     volumes:
       - mongodata:/data/db
   nginx:
-    # Need upgrading?
     build: ./development
     container_name: jfrapp-development-nginx
     depends_on:
@@ -25,8 +23,7 @@ services:
         target: /app
     working_dir: /app
   front-end:
-    # Need upgrading?
-    image: node:10.7.0-stretch
+    image: node:14.8.0-stretch
     container_name: jfrapp-development-web
     # For advanced environment variables, go to url https://create-react-app.dev/docs/advanced-configuration/.
     command: sh -c 'yarn start'
@@ -41,8 +38,7 @@ services:
     working_dir: /app
     stdin_open: true
   back-end-api:
-    # Need upgrading?
-    image: node:10.7.0-stretch
+    image: node:14.8.0-stretch
     container_name: jfrapp-development-api
     command: sh -c 'node --inspect=0.0.0.0:9229 index.js'
     environment:
