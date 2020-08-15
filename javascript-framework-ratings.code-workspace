@@ -8,9 +8,6 @@
     },
     {
       "path": "development"
-    },
-    {
-      "path": "deployment"
     }
   ],
   "settings": {}
