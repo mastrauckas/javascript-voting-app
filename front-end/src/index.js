@@ -3,9 +3,9 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import App from './App'
 import registerServiceWorker from './registerServiceWorker'
-import { injectGlobal } from 'styled-components'
+import { createGlobalStyle } from 'styled-components'
 
-injectGlobal`
+createGlobalStyle`
   html {
     font-family: sans-serif;
     font-size: 90%;
