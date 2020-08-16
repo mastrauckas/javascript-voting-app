@@ -8,7 +8,6 @@ cd ../back-end-api
 yarn
 cd ../development
 
-# set -o ./local-development.env
 set -a
 . ./local-development.env
 
