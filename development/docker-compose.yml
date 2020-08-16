@@ -1,4 +1,5 @@
-# docker-compose reference
+# docker-compose reference command line parameters: https://docs.docker.com/compose/reference/overview/
+# docker compose file reference: https://docs.docker.com/compose/compose-file/
 version: '3.8'
 services:
   mongodb:
@@ -26,7 +27,7 @@ services:
   front-end:
     image: node:14.8.0-stretch
     container_name: jfrapp-development-web
-    # For advanced environment variables, go to url https://create-react-app.dev/docs/advanced-configuration/.
+    # For advanced environment variables, go to url: https://create-react-app.dev/docs/advanced-configuration/.
     command: sh -c 'yarn start'
     depends_on:
       - back-end-api
