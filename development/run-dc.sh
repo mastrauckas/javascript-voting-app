@@ -9,7 +9,7 @@ yarn
 cd ../development
 
 set -a
-. ./local-development.env
+. ./.env
 
 docker-compose --project-directory .. up
 docker-compose --project-directory .. down
