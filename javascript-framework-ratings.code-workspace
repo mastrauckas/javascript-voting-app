@@ -1,16 +1,13 @@
 {
   "folders": [
     {
-      "path": "front-end-app"
+      "path": "front-end"
     },
     {
       "path": "back-end-api"
     },
     {
       "path": "development"
-    },
-    {
-      "path": "deployment"
     }
   ],
   "settings": {}

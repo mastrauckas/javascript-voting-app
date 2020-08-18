@@ -1,7 +1,9 @@
-version: '3.2'
+# docker-compose reference command line parameters: https://docs.docker.com/compose/reference/overview/
+# docker compose file reference: https://docs.docker.com/compose/compose-file/
+version: '3.8'
 services:
   mongodb:
-    image: mongo:3.6.6-jessie
+    image: mongo:4.4.0
     container_name: jfrapp-mongo-database
     ports:
       - '27017:27017'
@@ -23,9 +25,10 @@ services:
         target: /app
     working_dir: /app
   front-end:
-    image: node:10.7.0-stretch
+    image: node:14.8.0-stretch
     container_name: jfrapp-development-web
-    command: sh -c 'yarn start -H 0.0.0.0'
+    # For advanced environment variables, go to url: https://create-react-app.dev/docs/advanced-configuration/.
+    command: sh -c 'yarn start'
     depends_on:
       - back-end-api
     ports:
@@ -35,14 +38,15 @@ services:
         source: ./front-end
         target: /app
     working_dir: /app
+    stdin_open: true
   back-end-api:
-    image: node:10.7.0-stretch
+    image: node:14.8.0-stretch
     container_name: jfrapp-development-api
     command: sh -c 'node --inspect=0.0.0.0:9229 index.js'
     environment:
-      LISTEN_ON: 0.0.0.0
-      PORT: 8080
-      MONGO_CONNECTION_STRING: mongodb+srv://application-user:wA2GVyvIaCd5bWV1@local-development-clust.rtjbr.azure.mongodb.net/javascript-framework-ratings?retryWrites=true&w=majority
+      LISTEN_ON: "${JFR_APP_LISTEN_ON}"
+      PORT: "${JFR_APP_PORT}"
+      MONGO_CONNECTION_STRING: "${JFR_APP_MONGO_CONNECTION_STRING}"
     depends_on:
       - mongodb
     ports:
