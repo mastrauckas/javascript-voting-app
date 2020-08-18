@@ -21,7 +21,7 @@ export default class Voting extends Component {
     `
 
     const Tr = styled.tr`
-      color: ${Colors.blackColor}
+      color: ${Colors.blackColor};
       height: 4rem;
       background-color: ${props =>
     props.even ? Colors.secondPrimaryColor70PercentLighter : Colors.secondPrimaryColor90PercentLighter};
