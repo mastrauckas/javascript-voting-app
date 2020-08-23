@@ -1,6 +1,6 @@
 #!/bin/sh
 
-cd ../front-end-app
+cd ../front-end
 yarn
 cd ../development
 
