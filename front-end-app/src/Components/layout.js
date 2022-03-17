@@ -2,8 +2,21 @@ import React, { Component } from 'react'
 import Header from './header'
 import Main from './main'
 import styled from 'styled-components'
-
 import Footer from './footer'
+import { createGlobalStyle } from "styled-components"
+
+const GlobalStyle = createGlobalStyle
+`
+  html {
+    font-family: sans-serif;
+    font-size: 90%;
+  }
+
+  body {
+    font-size: 14px;
+    font-size: 1.4rem;
+  }
+`
 export default class Layout extends Component {
   render () {
     const FlexWrapperSection = styled.section`
@@ -12,12 +25,14 @@ export default class Layout extends Component {
       min-height: 100vh;
     `
 
+
     const FlexMain = styled(Main)`
       flex: 1;
     `
 
     return (
       <FlexWrapperSection>
+        <GlobalStyle />
         <Header />
         <FlexMain />
         <Footer />

@@ -1,5 +1,5 @@
 module.exports = {
-  parser: 'babel-eslint',
+  parser: 'esprima',
   extends: ['standard', 'plugin:react/recommended'],
   plugins: ['react', 'prettier'],
   globals: {
