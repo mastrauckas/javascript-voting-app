@@ -100,5 +100,5 @@ Rating.propTypes = {
   numberRating: PropTypes.number.isRequired,
   totalRating: PropTypes.number.isRequired,
   isStatic: PropTypes.bool.isRequired,
-  onVote: PropTypes.func,
+  onVote: PropTypes.func
 }

@@ -23,7 +23,7 @@ services:
         target: /app
     working_dir: /app
   front-end:
-    image: node:10.7.0-stretch
+    image: node:17.7.1-stretch
     container_name: jfrapp-development-web
     command: sh -c 'yarn start -H 0.0.0.0'
     depends_on:
@@ -36,7 +36,7 @@ services:
         target: /app
     working_dir: /app
   back-end-api:
-    image: node:10.7.0-stretch
+    image: node:17.7.1-stretch
     container_name: jfrapp-development-api
     command: sh -c 'node --inspect=0.0.0.0:9229 index.js'
     environment:

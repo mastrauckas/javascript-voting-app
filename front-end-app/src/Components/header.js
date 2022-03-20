@@ -6,7 +6,7 @@ import Colors from './colors'
 export default class Main extends Component {
   static get propTypes () {
     return {
-      className: PropTypes.string,
+      className: PropTypes.string
     }
   }
 

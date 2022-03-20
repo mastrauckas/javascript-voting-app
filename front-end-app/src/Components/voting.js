@@ -9,7 +9,7 @@ export default class Voting extends Component {
     super(props)
 
     this.state = {
-      frameworks: props.frameworks,
+      frameworks: props.frameworks
     }
   }
 
@@ -93,8 +93,8 @@ Voting.propTypes = {
     PropTypes.shape({
       id: PropTypes.string.isRequired,
       name: PropTypes.string.isRequired,
-      avgRating: PropTypes.number.isRequired,
+      avgRating: PropTypes.number.isRequired
     }).isRequired
   ),
-  onVote: PropTypes.func,
+  onVote: PropTypes.func
 }

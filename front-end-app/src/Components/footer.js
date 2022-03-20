@@ -6,7 +6,7 @@ import Colors from './colors'
 export default class Main extends Component {
   static get propTypes () {
     return {
-      className: PropTypes.string,
+      className: PropTypes.string
     }
   }
 
@@ -31,7 +31,7 @@ export default class Main extends Component {
       <Footer className={this.props.className}>
         <H5>
           <A href="https://github.com/maaify/javascript-framework-ratings">
-            By MAAify
+            By Michael Astrauckas
           </A>
         </H5>
       </Footer>

@@ -1,12 +1,10 @@
 import React, { Component } from 'react'
 import Header from './header'
 import Main from './main'
-import styled from 'styled-components'
+import styled, { createGlobalStyle } from 'styled-components'
 import Footer from './footer'
-import { createGlobalStyle } from "styled-components"
 
-const GlobalStyle = createGlobalStyle
-`
+const GlobalStyle = createGlobalStyle`
   html {
     font-family: sans-serif;
     font-size: 90%;
@@ -24,7 +22,6 @@ export default class Layout extends Component {
       flex-direction: column;
       min-height: 100vh;
     `
-
 
     const FlexMain = styled(Main)`
       flex: 1;

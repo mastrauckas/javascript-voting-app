@@ -22,7 +22,7 @@ export default class Main extends Component {
 
   static get propTypes () {
     return {
-      className: PropTypes.string,
+      className: PropTypes.string
     }
   }
 
@@ -48,9 +48,9 @@ export default class Main extends Component {
               method: 'POST',
               headers: {
                 Accept: 'application/json',
-                'Content-Type': 'application/json',
+                'Content-Type': 'application/json'
               },
-              body: JSON.stringify({ id, rating }),
+              body: JSON.stringify({ id, rating })
             })
 
             const framework = await response.json()
