@@ -25,7 +25,9 @@ interface TrProps {
   even?: boolean
 }
 
-const Tr = styled.tr<TrProps>`
+const Tr = styled.tr.withConfig({
+  shouldForwardProp: (prop) => prop !== "even", // prevent boolean prop in DOM
+})<TrProps>`
   color: ${Colors.blackColor};
   height: 4rem;
   background-color: ${({ even }) =>
@@ -63,8 +65,8 @@ export default function Voting({ frameworks: initialFrameworks, onVote }: Voting
         const res = await fetch("/api/voting")
         const data: Framework[] = await res.json()
         setFrameworks(data)
-      } catch (err) {
-        console.error("Failed to fetch frameworks:", err)
+      } catch (error) {
+        console.error("Failed to fetch frameworks:", error)
       }
     }
     fetchFrameworks()
@@ -82,8 +84,8 @@ export default function Voting({ frameworks: initialFrameworks, onVote }: Voting
         prev.map(fw => (fw.id === id ? updatedFramework : fw))
       )
       if (onVote) onVote(id, rating)
-    } catch (err) {
-      console.error("Failed to submit vote:", err)
+    } catch (error) {
+      console.error("Failed to submit vote:", error)
     }
   }
 
@@ -106,7 +108,7 @@ export default function Voting({ frameworks: initialFrameworks, onVote }: Voting
               <Td>{fw.name}</Td>
               <Td>
                 <Rating
-                  numberRating={0}
+                  numberRating={0} // user hasn't rated yet
                   totalRating={5}
                   isStatic={false}
                   onVote={starRating => handleVote(fw.id, starRating)}
@@ -116,7 +118,7 @@ export default function Voting({ frameworks: initialFrameworks, onVote }: Voting
                 <Rating
                   numberRating={fw.avgRating}
                   totalRating={5}
-                  isStatic={true}
+                  isStatic={true} // display average
                 />
               </Td>
             </Tr>
